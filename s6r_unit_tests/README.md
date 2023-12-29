@@ -54,6 +54,25 @@ def get_fields_message_to_skip():
 fields_logger.get_fields_message_to_skip = get_fields_message_to_skip
 ```
 
+
+### Avoid warning or error messages from Chrome browser tests
+
+In the custom module, in `tests` directory, add a file `common.py` and override the `get_console_message_to_skip` function like in the example bellow.
+
+`type` can be 'warning' or 'error'. 
+`msg` must be contained in the browser message to skip. 
+
+```python
+from odoo.addons.s6r_unit_tests.tests.common import ChromeBrowser
+def get_console_message_to_skip():
+    return [
+        {'type': 'warning',
+         'msg': 'Smartlook is stopped'}
+    ]
+
+ChromeBrowser.get_console_message_to_skip = get_console_message_to_skip
+```
+
 #### Authors
 
 * Michel Perrocheau
