@@ -73,16 +73,15 @@ def get_console_message_to_skip():
 ChromeBrowser.get_console_message_to_skip = get_console_message_to_skip
 ```
 
-#### Authors
+## Authors
+
+* Scalizer
+
+## Contributors
 
 * Michel Perrocheau
 
-#### Contributors
-
-* Michel Perrocheau
-
-#### Maintainers
-
+## Maintainers
 
 This module is maintained by [Scalizer](https://www.scalizer.fr).
 
