@@ -64,7 +64,7 @@ In the custom module, in `tests` directory, add a file `common.py` and override 
 
 ```python
 from odoo.addons.s6r_unit_tests.tests.common import ChromeBrowser
-def get_console_message_to_skip():
+def get_console_message_to_skip(self)::
     return [
         {'type': 'warning',
          'msg': 'Smartlook is stopped'}

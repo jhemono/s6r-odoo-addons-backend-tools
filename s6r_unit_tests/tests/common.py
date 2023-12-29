@@ -5,7 +5,7 @@ from odoo.tests.common import ChromeBrowser
 _handle_console_origin = ChromeBrowser._handle_console
 
 
-def get_console_message_to_skip():
+def get_console_message_to_skip(self):
     """
     Returns a list of dict of excluded Chrome browser console messages.
     [
@@ -16,12 +16,12 @@ def get_console_message_to_skip():
     return []
 
 
-ChromeBrowser.get_excluded_tests = get_console_message_to_skip
+ChromeBrowser.get_console_message_to_skip = get_console_message_to_skip
 
 
 def _handle_console(self, type, args=None, stackTrace=None, **kw):
     if args and isinstance(args[0], dict) and args[0].get('value'):
-        for msg_to_skip in get_console_message_to_skip():
+        for msg_to_skip in self.get_console_message_to_skip():
             if msg_to_skip['type'] == type:
                 if msg_to_skip['msg'] in args[0].get('value'):
                     return
