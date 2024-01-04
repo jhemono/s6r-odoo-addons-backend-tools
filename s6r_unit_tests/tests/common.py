@@ -4,6 +4,7 @@ import re
 import copy
 from odoo.tests.common import ChromeBrowser
 _handle_console_origin = ChromeBrowser._handle_console
+_handle_exception_origin = ChromeBrowser._handle_exception
 
 
 def get_console_message_to_skip(self):
@@ -44,3 +45,14 @@ def _handle_console(self, type, args=None, stackTrace=None, **kw):
 
 
 ChromeBrowser._handle_console = _handle_console
+
+
+def _handle_exception(self, exceptionDetails, timestamp):
+    for msg_to_skip in self.get_console_message_to_skip():
+        if msg_to_skip['type'] == 'error':
+            if msg_to_skip['msg'] in exceptionDetails:
+                return
+    _handle_exception_origin(self, exceptionDetails, timestamp)
+
+
+ChromeBrowser._handle_exception = _handle_exception
