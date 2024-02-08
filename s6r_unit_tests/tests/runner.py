@@ -28,7 +28,7 @@ OdooTestResult.get_excluded_tests = get_excluded_tests
 def skip_unit_test(test):
     excluded_tests = OdooTestResult.get_excluded_tests()
     for excluded_test in excluded_tests:
-        if excluded_test['module'] == test.test_module:
+        if hasattr(test, 'test_module') and excluded_test['module'] == test.test_module:
             if excluded_test['class'] == 'all':
                 return True
             elif excluded_test['class'] == test.test_class:
