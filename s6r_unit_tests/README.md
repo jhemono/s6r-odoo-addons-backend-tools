@@ -4,8 +4,6 @@ Scalizer Unit Tests
 This module helps to manage unit tests on Odoo.sh platform.
 
 This is a technical module. This requires a custom module to inherit it.
-<br>
-<br>
 
 ## Table of contents
 
@@ -16,6 +14,13 @@ This is a technical module. This requires a custom module to inherit it.
 * [Maintainers](#maintainers)
 
 ## Usage
+
+### Create a custom module
+
+Create a custom module (s6r_my_project_unit_tests for example) add `s6r_unit_tests` in the dependencies. 
+
+In the manifest, set `'auto_install': True`
+
 
 ### Skip failing python unit tests
 
