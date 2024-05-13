@@ -84,7 +84,7 @@ ChromeBrowser.get_console_message_to_skip = get_console_message_to_skip
 
 ## Contributors
 
-* Michel Perrocheau
+* Michel Perrocheau ([Github](https://github.com/myrrkel))
 
 ## Maintainers
 
